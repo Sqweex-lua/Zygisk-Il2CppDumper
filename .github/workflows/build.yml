@@ -24,8 +24,7 @@ jobs:
           sed -i 's/com.game.packagename/${{ github.event.inputs.package_name }}/g' module/src/main/cpp/game.h
           ./gradlew :module:assembleRelease
 
-      # КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: v3 -> v4
       - uses: actions/upload-artifact@v4
         with:
-          name: zygisk-il2cppdumper-${{ github.run_id }} # Добавили ID, чтобы имя было уникальным
+          name: zygisk-il2cppdumper-${{ github.run_id }}
           path: out/magisk_module_release/
